@@ -1,0 +1,98 @@
+@import "./../assets/scss/utils/variables";
+@import "./../assets/scss/utils/breakpoints";
+@import "./../assets/scss/utils/mixins";
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  &__title {
+    color: $primary-color;
+    font-size: 2rem;
+    cursor: pointer;
+
+    &::before {
+      content: "\2302";
+      margin-right: 0.5rem;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__search-beer-form {
+    @include custom-form-input-mixin;
+  }
+
+  &__beers {
+    grid-gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__header,
+  &__footer {
+    display: none;
+  }
+}
+
+p {
+  font-family: Lato;
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .app-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+
+    &__title {
+      display: none;
+    }
+
+    &__beers {
+      grid-gap: 2.5rem;
+    }
+
+    &__header,
+    &__footer {
+      display: block;
+      position: fixed;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      background-color: $primary-color;
+      color: white;
+      z-index: 1;
+    }
+
+    &__header {
+      top: 0;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &::before {
+        content: "\2302";
+        margin-right: 1rem;
+        height: 100%;
+      }
+    }
+
+    &__footer {
+      bottom: 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, xxl)) {
+  .app-root {
+    &__beers {
+      max-width: 90vw;
+    }
+  }
+}

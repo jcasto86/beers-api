@@ -1,0 +1,23 @@
+<div *ngIf="cardData">
+  <div
+    routerLink="/product/{{ cardData.id }}"
+    [queryParams]="{ name: formatNameForURL(cardData.name || '') }"
+    class="app-beer-card__container"
+  >
+    <div class="app-beer-card__image">
+      <img
+        src="{{ cardData.image_url }}"
+        alt="{{ cardData.name }}"
+        (error)="cardData.image_url = './../../../assets/images/beer.png'"
+      />
+    </div>
+    <div class="app-beer-card__text">
+      <div class="app-beer-card__text__name">
+        <b> Name: </b> {{ cardData.name }}
+      </div>
+      <div class="app-beer-card__text__alcohol">
+        <b> Alcohol: </b> {{ cardData.abv }}%
+      </div>
+    </div>
+  </div>
+</div>

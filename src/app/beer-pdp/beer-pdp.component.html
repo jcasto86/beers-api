@@ -1,0 +1,34 @@
+<div class="app-beer-pdp" *ngIf="beer$ | async as beerArray">
+  <ng-container *ngFor="let beer of beerArray">
+    <div class="app-beer-pdp__container">
+      <img
+        class="app-beer-pdp__image"
+        [src]="beer.image_url"
+        [alt]="beer.name"
+      />
+      <div class="app-beer-pdp__name">
+        {{ beer.name }} ({{ beer.abv }}% ABV)
+      </div>
+
+      <div class="app-beer-pdp__first-brewed">
+        <b> First brewed: </b> {{ beer.first_brewed }}
+      </div>
+
+      <div class="app-beer-pdp__tagline">
+        <b> Tagline: </b> {{ beer.tagline }}
+      </div>
+
+      <div class="app-beer-pdp__description">
+        <b> Description: </b> {{ beer.description }}
+      </div>
+
+      <div class="app-beer-pdp__food-pairing">
+        <b> Food pairing: </b> {{ beer.food_pairing }}
+      </div>
+
+      <div class="app-beer-pdp__brewers-tips">
+        <b> Brewers tips: </b> {{ beer.brewers_tips }}
+      </div>
+    </div>
+  </ng-container>
+</div>

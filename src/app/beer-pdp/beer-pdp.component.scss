@@ -1,0 +1,68 @@
+@import "./../../assets/scss/utils/variables";
+@import "./../../assets/scss/utils/breakpoints";
+
+.app-beer-pdp {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  &__container {
+    display: grid;
+    height: fit-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto);
+    grid-gap: 2rem;
+    justify-items: flex-start;
+    align-items: center;
+    margin: 0 2rem;
+
+    div b {
+      color: $primary-color;
+      font-size: 1.125rem;
+    }
+
+    .app-beer-pdp {
+      &__image {
+        box-shadow: 3px 3px 3px 2px grey;
+        justify-self: center;
+        max-height: 15rem;
+        background-color: $primary-translucent-background;
+        padding: 2rem;
+        margin-bottom: 1rem;
+        border-radius: 20px;
+      }
+
+      &__name {
+        justify-self: center;
+        color: $primary-color-dark;
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .app-beer-pdp {
+    margin-top: 5rem;
+
+    &__container {
+      height: auto;
+      max-width: 60rem;
+      justify-items: unset;
+      align-items: unset;
+      grid-template-columns: 1fr 5fr;
+      grid-template-rows: repeat(6, minmax(min-content, max-content));
+      grid-gap: 1rem 4rem;
+
+      .app-beer-pdp__image {
+        max-height: 27.5rem;
+        grid-row: 1 / -1;
+        grid-column: 1 / span 1;
+        margin-bottom: unset;
+      }
+
+      .app-beer-pdp__name {
+        font-size: 2rem;
+      }
+    }
+  }
+}

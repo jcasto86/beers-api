@@ -1,0 +1,64 @@
+@import "./../../assets/scss/utils/variables";
+@import "./../../assets/scss/utils/breakpoints";
+@import "./../../assets/scss/utils/mixins";
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  &__title {
+    color: $primary-color;
+    font-size: 2rem;
+  }
+
+  &__search-beer-form {
+    @include custom-form-input-mixin;
+  }
+
+  &__beers {
+    grid-gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .pagination {
+    @include custom-pagination-mixin;
+  }
+}
+
+p {
+  font-family: Lato;
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .homepage {
+    margin: 5rem 0;
+
+    // &__search-beer-form {
+    //   position: absolute;
+    //   top: 7rem;
+    // }
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__beers {
+      grid-gap: 2.5rem;
+    }
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, xxl)) {
+  .homepage {
+    gap: 4rem;
+
+    &__beers {
+      max-width: 70vw;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<section class="homepage">
+  <div class="homepage__search-beer-form">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="input-icon"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+        clip-rule="evenodd"
+      />
+    </svg>
+
+    <input
+      type="text"
+      [(ngModel)]="query"
+      (input)="searchBeer()"
+      placeholder="Search beers"
+    />
+  </div>
+
+  <div class="homepage__beers" *ngIf="beers$ | async as beers">
+    <ng-container *ngIf="beers.length; else noBeers">
+      <div class="beer" *ngFor="let beer of beers">
+        <app-beer-card [cardData]="beer"></app-beer-card>
+      </div>
+    </ng-container>
+
+    <ng-template #noBeers>{{ notLoadedMessage }}</ng-template>
+  </div>
+
+  <ng-container *ngIf="beers$ | async as beers">
+    <div *ngIf="beers.length >= itemsPerPage" class="pagination">
+      <button
+        [disabled]="currentPage === 1"
+        (click)="changePage(currentPage - 1)"
+      >
+        ❮ Previous
+      </button>
+      <span>Page {{ currentPage }}/{{ pageNumbers.length }}</span>
+      <button
+        [disabled]="currentPage === pageNumbers.length"
+        (click)="changePage(currentPage + 1)"
+      >
+        Next ❯
+      </button>
+    </div>
+  </ng-container>
+</section>
