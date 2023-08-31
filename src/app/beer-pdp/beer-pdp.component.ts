@@ -1,8 +1,8 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PunkService } from '../punk.service';
 import { Beer } from '../models/beer-data.model';
 import { Observable } from 'rxjs';
+import { PunkService } from '../punk.service';
 
 @Component({
   selector: 'app-beer-pdp',
@@ -14,7 +14,7 @@ export class BeerPdpComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private punkService: PunkService
+    private punkService: PunkService,
   ) { }
 
   ngOnInit(): void {

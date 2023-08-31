@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, map, tap } from 'rxjs/operators';
 import { Beer } from '../models/beer-data.model';
-import { PunkService } from '../punk.service';
 import { FormGroup } from '@angular/forms';
+import { PunkService } from '../punk.service';
 
 @Component({
   selector: 'app-beer-plp',

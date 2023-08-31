@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { BeerPdpComponent } from './beer-pdp.component';
 import { PunkService } from '../punk.service';
-import { Beer } from '../models/beer-data.model';
 
 describe('BeerPdpComponent', () => {
   let component: BeerPdpComponent;

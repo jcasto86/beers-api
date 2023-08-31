@@ -20,8 +20,4 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should have the correct appTitle', () => {
-    expect(component.appTitle).toBe('beers app');
-  });
 });

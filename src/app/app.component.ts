@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   /**
-   * General Title.
+   * General App Title.
    */
   appTitle: string = 'beers app';
 

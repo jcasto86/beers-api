@@ -77,11 +77,11 @@
 
     &:hover {
       background-color: $primary-color;
-      color: #fff;
+      color: white;
     }
 
     &:disabled {
-      color: #fff;
+      color: white;
       background-color: #ccc;
       border: none;
       cursor: not-allowed;
@@ -94,13 +94,12 @@
     margin: 0 1rem;
   }
 
-  @media (min-width: map-get($grid-breakpoints, lg)) {
+  @media (min-width: map-get($grid-breakpoints, sm)) {
     button {
       width: 10rem;
     }
 
     span {
-      font-size: 1.125rem;
       margin: 0 3rem;
     }
   }
@@ -111,7 +110,6 @@
     }
 
     span {
-      font-size: 1.25rem;
       margin: 0 4rem;
     }
   }

@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BeerPlpComponent } from './beer-plp.component';
-import { PunkService } from '../punk.service';
 import { of } from 'rxjs';
-import { Beer } from '../models/beer-data.model';
+import { PunkService } from '../punk.service';
 
 describe('BeerPlpComponent', () => {
   let component: BeerPlpComponent;
