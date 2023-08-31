@@ -39,7 +39,7 @@
 
   @media (min-width: map-get($grid-breakpoints, lg)) {
     position: fixed;
-    top: 0;
+    top: 0.175rem;
     right: 0;
     z-index: 2;
     transform: scale(0.675);
@@ -65,7 +65,7 @@
   margin: 2rem 0;
 
   button {
-    width: 7rem;
+    width: 7.5rem;
     background-color: transparent;
     color: $primary-color;
     padding: 0.5rem 1rem;

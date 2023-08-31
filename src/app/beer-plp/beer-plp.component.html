@@ -15,9 +15,9 @@
 
     <input
       type="text"
-      [(ngModel)]="query"
-      (input)="searchBeer()"
       placeholder="Search beers"
+      (keyup)="onKeyPress(inputQuery.value)"
+      #inputQuery
     />
   </div>
 
@@ -28,7 +28,9 @@
       </div>
     </ng-container>
 
-    <ng-template #noBeers>{{ notLoadedMessage }}</ng-template>
+    <ng-template #noBeers>
+      <span class="no-beers-found"> {{ notLoadedMessage }}</span></ng-template
+    >
   </div>
 
   <ng-container *ngIf="beers$ | async as beers">

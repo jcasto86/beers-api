@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { distinctUntilChanged, map, shareReplay } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { debounceTime, map, tap } from 'rxjs/operators';
 import { Beer } from '../models/beer-data.model';
 import { PunkService } from '../punk.service';
 import { FormGroup } from '@angular/forms';
@@ -10,21 +10,20 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './beer-plp.component.html',
   styleUrls: ['./beer-plp.component.scss'],
 })
-export class BeerPlpComponent implements OnInit {
+export class BeerPlpComponent implements OnInit, OnDestroy {
   /**
    * Observable that collects the current component data from the API.
    */
   beers$?: Observable<Beer[]>;
 
+  private debouncer: Subject<string> = new Subject<string>();
+
+  private debouncerSubscription?: Subscription;
+
   /**
    * Error message for not loaded/found beers.
    */
   notLoadedMessage: string = 'Apologize, beers not found.';
-
-  /**
-   * Search beers query. Empty by default to show all the beers.
-   */
-  query: string = '';
 
   /**
    * Indicates the number of beer cards showed in each page.
@@ -46,12 +45,15 @@ export class BeerPlpComponent implements OnInit {
    */
   pageNumbers: number[] = [];
 
-  searchForm!: FormGroup;
-
   constructor(private punkService: PunkService) { }
 
   ngOnInit() {
     this.loadBeers();
+    this.debouncerSubscription = this.debouncer.pipe(debounceTime(300)).pipe(tap(value => this.searchBeer(value))).subscribe(value => console.log('Debouncer value: ', value))
+  }
+
+  ngOnDestroy(): void {
+    this.debouncerSubscription?.unsubscribe()
   }
 
   /**
@@ -84,28 +86,22 @@ export class BeerPlpComponent implements OnInit {
     this.loadBeers();
   }
 
-  // /**
-  //  * Method used for searching beers in the API through the punkService.
-  //  * If the input is empty, it get all the beers. Uses search(query)
-  //  * If there is a search term, it gets all the beers that match the name (limited to 10). Uses getAllBeers()
-  //  */
-  // searchBeer() {
-  //   this.query.trim() !== ''
-  //     ? (this.beers$ = this.punkService.search(this.query))
-  //     : this.loadBeers();
-
-  //   console.log('Query:', this.query);
-  // }
-
-  searchBeer() {
-    if (this.query.trim() !== '') {
-      setTimeout(() => {
-        this.beers$ = this.punkService.getAllBeers().pipe(
-          map(beers => beers.filter(beer => beer.name.toLowerCase().startsWith(this.query.trim().toLowerCase()))),
-        );
-      }, 1000);
+  /**
+   *  Method used for searching beers in the API through the punkService.
+   *  It looks for beers that match the search box query.
+   */
+  searchBeer(query: string) {
+    if (query.trim() !== '') {
+      this.beers$ = this.punkService.getAllBeers().pipe(
+        map(beers => beers.filter(beer => beer.name.toLowerCase().includes(query.trim().toLowerCase()))),
+      );
     } else {
       this.loadBeers();
     }
+    console.log('Search Beer: ', query);
+  }
+
+  onKeyPress(query: string) {
+    this.debouncer.next(query);
   }
 }

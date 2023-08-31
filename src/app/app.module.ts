@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BeerPdpModule } from './beer-pdp/beer-pdp.module';
 import { BeerPlpModule } from './beer-plp/beer-plp.module';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -16,7 +16,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BeerPdpModule,
     BeerPlpModule,
-    ReactiveFormsModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

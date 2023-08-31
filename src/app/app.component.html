@@ -1,6 +1,13 @@
 <section class="app-root">
-  <h1 class="app-root__title" routerLink="/">{{ appTitle | titlecase }}</h1>
-  <div class="app-root__header" routerLink="/">{{ appTitle | titlecase }}</div>
+  <div class="app-root__title" routerLink="/">
+    <i class="title-icon material-icons">home</i>
+    <h1>{{ appTitle | titlecase }}</h1>
+  </div>
+
+  <i class="header-icon material-icons" routerLink="/">home</i>
+  <div class="app-root__header">
+    {{ appTitle | titlecase }}
+  </div>
   <router-outlet></router-outlet>
   <div class="app-root__footer">&copy;2023 by Javier Casto</div>
 </section>

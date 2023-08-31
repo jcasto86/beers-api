@@ -25,6 +25,11 @@
     align-items: center;
   }
 
+  .no-beers-found {
+    color: $primary-text-color-light;
+    font-size: 1.25rem;
+  }
+
   .pagination {
     @include custom-pagination-mixin;
   }
@@ -36,12 +41,7 @@ p {
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
   .homepage {
-    margin: 5rem 0;
-
-    // &__search-beer-form {
-    //   position: absolute;
-    //   top: 7rem;
-    // }
+    margin: 7rem 0;
 
     &__title {
       font-size: 3rem;
@@ -49,6 +49,10 @@ p {
 
     &__beers {
       grid-gap: 2.5rem;
+    }
+
+    .no-beers-found {
+      font-size: 1.375rem;
     }
   }
 }
@@ -59,6 +63,10 @@ p {
 
     &__beers {
       max-width: 70vw;
+    }
+
+    .no-beers-found {
+      font-size: 1.5rem;
     }
   }
 }

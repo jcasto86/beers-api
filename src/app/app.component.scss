@@ -9,15 +9,24 @@
   gap: 1rem;
 
   &__title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
     color: $primary-color;
-    font-size: 2rem;
+    font-size: 2.25rem;
     cursor: pointer;
+    margin-top: 2rem;
 
-    &::before {
-      content: "\2302";
-      margin-right: 0.5rem;
+    .title-icon {
+      margin: 10px 0;
+      height: 100%;
       font-size: 2.5rem;
     }
+  }
+
+  .header-icon {
+    display: none;
   }
 
   &__search-beer-form {
@@ -53,6 +62,17 @@ p {
       display: none;
     }
 
+    .header-icon {
+      font-size: 3rem;
+      display: block;
+      z-index: 2;
+      position: fixed;
+      color: white;
+      left: 1rem;
+      top: 0.675rem;
+      cursor: pointer;
+    }
+
     &__beers {
       grid-gap: 2.5rem;
     }
@@ -73,13 +93,6 @@ p {
     &__header {
       top: 0;
       font-size: 2rem;
-      cursor: pointer;
-
-      &::before {
-        content: "\2302";
-        margin-right: 1rem;
-        height: 100%;
-      }
     }
 
     &__footer {
