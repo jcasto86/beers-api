@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BeerPdpModule } from './beer-pdp/beer-pdp.module';
 import { BeerPlpModule } from './beer-plp/beer-plp.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { BeerPlpModule } from './beer-plp/beer-plp.module';
     AppRoutingModule,
     BeerPdpModule,
     BeerPlpModule,
+    RouterModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

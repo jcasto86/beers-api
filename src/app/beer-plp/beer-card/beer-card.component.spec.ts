@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BeerCardComponent } from './beer-card.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BeerCardComponent', () => {
   let component: BeerCardComponent;
@@ -7,7 +8,8 @@ describe('BeerCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BeerCardComponent]
+      declarations: [BeerCardComponent],
+      imports: [RouterTestingModule]
     });
 
     fixture = TestBed.createComponent(BeerCardComponent);
@@ -25,5 +27,12 @@ describe('BeerCardComponent', () => {
     const formattedName = component.formatNameForURL(inputName);
 
     expect(formattedName).toEqual(expectedFormattedName);
+  });
+
+  it('should handle missing cardData', () => {
+    fixture.detectChanges();
+    const cardElement: HTMLElement = fixture.nativeElement;
+    const anchorElement = cardElement.querySelector('a.app-beer-card');
+    expect(anchorElement).toBeFalsy();
   });
 });
