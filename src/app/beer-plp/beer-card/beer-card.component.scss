@@ -2,6 +2,8 @@
 @import "./../../../assets/scss/utils/breakpoints";
 
 .app-beer-card {
+  position: relative;
+
   &__container {
     cursor: pointer;
     width: 18rem;
@@ -49,6 +51,20 @@
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
+  }
+}
+
+button.app-beer-card__favourite-button {
+  color: grey;
+  display: flex;
+  position: absolute;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.75rem;
+  background-color: transparent;
+  border: none;
+
+  &.favourite {
+    color: goldenrod;
   }
 }
 

@@ -3,4 +3,5 @@ export interface BeerCard {
     image_url?: string;
     name?: string;
     abv?: number;
+    isFavourite?: boolean;
 }

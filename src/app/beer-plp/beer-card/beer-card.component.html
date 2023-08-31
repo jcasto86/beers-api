@@ -1,4 +1,11 @@
 <div *ngIf="cardData">
+  <button
+    class="app-beer-card__favourite-button"
+    (click)="toggleFavourite()"
+    [ngClass]="{ favourite: isFavourite }"
+  >
+    ★
+  </button>
   <div
     routerLink="/product/{{ cardData.id }}"
     [queryParams]="{ name: formatNameForURL(cardData.name || '') }"
