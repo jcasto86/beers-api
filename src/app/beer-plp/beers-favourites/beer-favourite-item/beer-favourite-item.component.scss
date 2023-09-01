@@ -1,0 +1,16 @@
+.favourite-items__container {
+  border: 2px outset goldenrod;
+  background-color: rgba(218, 165, 32, 0.246);
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-height: 7.5rem;
+  }
+}

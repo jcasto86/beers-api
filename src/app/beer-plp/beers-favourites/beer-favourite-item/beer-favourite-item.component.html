@@ -1,0 +1,11 @@
+<ng-container *ngIf="beer">
+  <div class="favourite-items__container">
+    <div class="favourite-items__image">
+      <img src="{{ beer.image_url }}" alt="" />
+    </div>
+
+    <h4 class="favourite-items__name">
+      {{ beer.name }}
+    </h4>
+  </div>
+</ng-container>
