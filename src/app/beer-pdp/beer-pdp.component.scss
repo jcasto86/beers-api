@@ -22,7 +22,7 @@
 
     .app-beer-pdp {
       &__image {
-        box-shadow: 3px 3px 3px 2px grey;
+        box-shadow: 3px 3px 3px 2px $box-shadow-color;
         justify-self: center;
         max-height: 15rem;
         background-color: $primary-translucent-background;
@@ -54,7 +54,6 @@
       grid-gap: 1rem 4rem;
 
       .app-beer-pdp__image {
-        // max-height: 27.5rem;
         max-height: 35rem;
         grid-row: 1 / -1;
         grid-column: 1 / span 1;

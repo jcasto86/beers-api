@@ -2,6 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { PunkService } from './punk.service';
 import { Beer } from './models/beer-data.model';
+import { mockBeer } from './mocks/beer.mock';
 
 describe('PunkService', () => {
   let service: PunkService;
@@ -26,7 +27,7 @@ describe('PunkService', () => {
   });
 
   it('should retrieve beers using getAllBeers', () => {
-    const mockBeers: Beer[] = [/* Provide sample Beer data */];
+    const mockBeers: Beer[] = [mockBeer];
 
     service.getAllBeers().subscribe((beers) => {
       expect(beers).toEqual(mockBeers);
@@ -39,7 +40,7 @@ describe('PunkService', () => {
 
   it('should retrieve beers using search', () => {
     const query = 'sample-query';
-    const mockBeers: Beer[] = [/* Provide sample Beer data */];
+    const mockBeers: Beer[] = [mockBeer];
 
     service.search(query).subscribe((beers) => {
       expect(beers).toEqual(mockBeers);

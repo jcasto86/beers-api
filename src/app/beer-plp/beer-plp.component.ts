@@ -16,8 +16,16 @@ export class BeerPlpComponent implements OnInit, OnDestroy {
    */
   beers$?: Observable<Beer[]>;
 
+  /**
+   * Subject used to debounce user input in the search input field.
+   * It delays emitting values until a specific time since the last emission.
+   */
   private debouncer: Subject<string> = new Subject<string>();
 
+  /**
+   * Subscription to the debouncer observable.
+   * It allows tracking and managing the subscription to debounce user input.
+   */
   private debouncerSubscription?: Subscription;
 
   /**
@@ -101,6 +109,11 @@ export class BeerPlpComponent implements OnInit, OnDestroy {
     console.log('Search Beer: ', query);
   }
 
+  /**
+   * Handles key presses in the search input field by debouncing the input and triggering a search.
+   * 
+   * @param query 
+   */
   onKeyPress(query: string) {
     this.debouncer.next(query);
   }

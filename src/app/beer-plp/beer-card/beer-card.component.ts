@@ -12,6 +12,9 @@ export class BeerCardComponent implements OnInit {
    */
   @HostBinding('class') class = 'app-beer-card';
 
+  /**
+   * Indicates whether this card has been selected as favourite.
+   */
   isFavourite: boolean = false;
 
   /**
@@ -28,15 +31,27 @@ export class BeerCardComponent implements OnInit {
     this.isFavourite = favouriteBeers.includes(this.cardData.id)
   }
 
+  /**
+   * Replaces the spaces for hyphens in the string.
+   * 
+   * @param name 
+   * @returns 
+   */
   formatNameForURL(name: string): string {
     return name.replace(/ /g, '-').toLowerCase();
   }
 
+  /**
+   * Changes the state of 'isFavourite' property, to its opposite, and update the local storage.
+   */
   toggleFavourite() {
     this.isFavourite = !this.isFavourite;
     this.updateLocalStorage();
   }
 
+  /**
+   * Updates the 'favouriteBeers' data in local storage based on the current state.
+   */
   private updateLocalStorage() {
     const favouriteBeers = JSON.parse(localStorage.getItem('favouriteBeers') || '[]');
 

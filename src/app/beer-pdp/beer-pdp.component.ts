@@ -10,6 +10,9 @@ import { PunkService } from '../punk.service';
   styleUrls: ['./beer-pdp.component.scss'],
 })
 export class BeerPdpComponent implements OnInit {
+  /**
+   * Beers observable data.
+   */
   beer$?: Observable<Beer[]>;
 
   constructor(
@@ -21,6 +24,10 @@ export class BeerPdpComponent implements OnInit {
     this.handleRouteParam();
   }
 
+  /**
+   * Handles the route parameter id and fetches the beer data if a valid ID is provided.
+   * If id is not a valid number or is not provided, it logs a message to the console.
+   */
   private handleRouteParam(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
