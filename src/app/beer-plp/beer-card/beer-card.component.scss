@@ -74,6 +74,11 @@ button.app-beer-card__favourite-button {
       width: 20rem;
     }
   }
+
+  button.app-beer-card__favourite-button {
+    font-size: 1.675rem;
+    padding: 0.25rem 0.75rem;
+  }
 }
 
 @media (min-width: map-get($grid-breakpoints, xxl)) {
