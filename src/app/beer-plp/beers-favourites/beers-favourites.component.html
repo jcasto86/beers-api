@@ -1,6 +1,8 @@
 <div class="app-beers-favourites">
   <h3 class="app-beers-favourites__title">My TOP Beers</h3>
-  <div *ngFor="let id of favouriteBeersIds">
-    <app-beer-favourite-item [beerId]="id"></app-beer-favourite-item>
+  <div class="app-beers-favourites__list-of-beers">
+    <div *ngFor="let id of favouriteBeersIds">
+      <app-beer-favourite-item [beerId]="id"></app-beer-favourite-item>
+    </div>
   </div>
 </div>

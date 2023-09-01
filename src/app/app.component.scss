@@ -9,20 +9,26 @@
   gap: 1rem;
 
   &__title {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
     color: $primary-color;
     font-size: 2.25rem;
     cursor: pointer;
     margin-top: 2rem;
+    gap: 2rem;
 
     .title-icon {
-      margin: 10px 0;
-      height: 100%;
-      font-size: 2.5rem;
+      font-size: 3rem;
+
+      &.star {
+        color: $favourite-beer-star;
+      }
     }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 3rem;
   }
 
   .header-icon {
@@ -67,10 +73,19 @@ p {
       display: block;
       z-index: 2;
       position: fixed;
-      color: white;
-      left: 1rem;
+
       top: 0.675rem;
       cursor: pointer;
+
+      &.home {
+        color: white;
+        left: 1rem;
+      }
+
+      &.star {
+        left: 5rem;
+        color: $favourite-beer-star;
+      }
     }
 
     &__beers {

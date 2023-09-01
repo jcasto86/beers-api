@@ -1,16 +1,28 @@
+@import "./../../../../assets/scss/utils/variables";
+@import "./../../../../assets/scss/utils/breakpoints";
+
 .favourite-items__container {
-  border: 2px outset goldenrod;
-  background-color: rgba(218, 165, 32, 0.246);
+  border: 2px outset $favourite-beer-star;
+  background-color: $favourite-beer-star-background;
   height: 15rem;
   width: 15rem;
   border-radius: 50%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 
-  img {
+  .favourite-items__image img {
     max-height: 7.5rem;
+  }
+
+  .favourite-items__name {
+    max-width: 9rem;
+    max-height: 2rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 }

@@ -1,10 +1,18 @@
 <section class="app-root">
-  <div class="app-root__title" routerLink="/">
-    <i class="title-icon material-icons">home</i>
+  <div class="app-root__title">
     <h1>{{ appTitle | titlecase }}</h1>
+    <div class="app-root__icons">
+      <i class="title-icon home material-icons" routerLink="/">home</i>
+      <i routerLink="/my-top-beers" class="title-icon star material-icons"
+        >star</i
+      >
+    </div>
   </div>
 
-  <a routerLink="/"><i class="header-icon material-icons">home</i></a>
+  <a routerLink="/"><i class="header-icon home material-icons">home</i></a>
+  <a routerLink="/my-top-beers"
+    ><i class="header-icon star material-icons">star</i></a
+  >
   <div class="app-root__header">
     {{ appTitle | titlecase }}
   </div>

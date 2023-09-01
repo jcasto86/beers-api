@@ -2,7 +2,34 @@
 @import "./../../../assets/scss/utils/breakpoints";
 
 .app-beers-favourites {
+  place-items: center;
+  display: grid;
+  grid-gap: 3.5rem;
+  margin-bottom: 4rem;
+
   &__title {
     color: $favourite-beer-star;
+  }
+
+  &__list-of-beers {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .app-beers-favourites {
+    margin: 5rem 4rem 8rem;
+
+    &__list-of-beers {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
   }
 }
