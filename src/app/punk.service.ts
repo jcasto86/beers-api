@@ -15,14 +15,6 @@ export class PunkService {
     return this.http.get<Beer[]>(`${this.baseApiUrl}?per_page=80`);
   }
 
-  search(query: string): Observable<Beer[]> {
-    const limit: string = '10';
-
-    return this.http.get<Beer[]>(
-      `${this.baseApiUrl}?beer_name=${query}&per_page=${limit}`
-    );
-  }
-
   getBeerById(id: string): Observable<Beer[]> {
     return this.http.get<Beer[]>(`${this.baseApiUrl}/${id}`);
   }

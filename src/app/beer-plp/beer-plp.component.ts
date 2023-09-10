@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { debounceTime, map, tap } from 'rxjs/operators';
+import { debounceTime, map, take, tap } from 'rxjs/operators';
 import { Beer } from '../models/beer-data.model';
 import { FormGroup } from '@angular/forms';
 import { PunkService } from '../punk.service';
@@ -101,7 +101,7 @@ export class BeerPlpComponent implements OnInit, OnDestroy {
   searchBeer(query: string) {
     if (query.trim() !== '') {
       this.beers$ = this.punkService.getAllBeers().pipe(
-        map(beers => beers.filter(beer => beer.name.toLowerCase().includes(query.trim().toLowerCase()))),
+        map(beers => beers.filter(beer => beer.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 10))
       );
     } else {
       this.loadBeers();
